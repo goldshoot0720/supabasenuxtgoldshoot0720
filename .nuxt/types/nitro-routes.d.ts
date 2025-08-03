@@ -24,8 +24,11 @@ declare module "nitropack/types" {
     '/api/sqlite/article': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/sqlite/article').default>>>>
     }
-    '/api/supabase/article': {
-      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/supabase/article').default>>>>
+    '/api/supabase/:table': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/supabase/[table]').default>>>>
+    }
+    '/api/supabase/tables': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/supabase/tables').default>>>>
     }
     '/__nuxt_error': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/handlers/renderer').default>>>>

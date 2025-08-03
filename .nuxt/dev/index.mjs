@@ -1148,7 +1148,22 @@ const plugins = [
 _oPzguwLyLVcgfpTvaQ4ho66inm8B8W6SxpX0UBTHmE
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"15930-mbodi0RAX8D8BrTiBvP9tovOkRU\"",
+    "mtime": "2025-08-03T14:39:25.197Z",
+    "size": 88368,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"4e88e-tckT1ZlRsaursEp7IEqvZZvsKWI\"",
+    "mtime": "2025-08-03T14:39:25.197Z",
+    "size": 321678,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -1555,14 +1570,15 @@ async function getIslandContext(event) {
   return ctx;
 }
 
-const _lazy_q83g0h = () => Promise.resolve().then(function () { return article$f; });
-const _lazy_5SUcim = () => Promise.resolve().then(function () { return article$d; });
-const _lazy_mmbfZ0 = () => Promise.resolve().then(function () { return article$b; });
-const _lazy_metBva = () => Promise.resolve().then(function () { return article$9; });
-const _lazy_OL2RG9 = () => Promise.resolve().then(function () { return article$7; });
-const _lazy_ajZFui = () => Promise.resolve().then(function () { return article$5; });
-const _lazy_95YKwQ = () => Promise.resolve().then(function () { return article$3; });
-const _lazy_8RWSaU = () => Promise.resolve().then(function () { return article$1; });
+const _lazy_q83g0h = () => Promise.resolve().then(function () { return article$d; });
+const _lazy_5SUcim = () => Promise.resolve().then(function () { return article$b; });
+const _lazy_mmbfZ0 = () => Promise.resolve().then(function () { return article$9; });
+const _lazy_metBva = () => Promise.resolve().then(function () { return article$7; });
+const _lazy_OL2RG9 = () => Promise.resolve().then(function () { return article$5; });
+const _lazy_ajZFui = () => Promise.resolve().then(function () { return article$3; });
+const _lazy_95YKwQ = () => Promise.resolve().then(function () { return article$1; });
+const _lazy_PD9zCU = () => Promise.resolve().then(function () { return _table_$1; });
+const _lazy_cMyHOx = () => Promise.resolve().then(function () { return tables$1; });
 const _lazy_Ubd3G6 = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
@@ -1574,7 +1590,8 @@ const handlers = [
   { route: '/api/nhost/article', handler: _lazy_OL2RG9, lazy: true, middleware: false, method: undefined },
   { route: '/api/postgres/article', handler: _lazy_ajZFui, lazy: true, middleware: false, method: undefined },
   { route: '/api/sqlite/article', handler: _lazy_95YKwQ, lazy: true, middleware: false, method: undefined },
-  { route: '/api/supabase/article', handler: _lazy_8RWSaU, lazy: true, middleware: false, method: undefined },
+  { route: '/api/supabase/:table', handler: _lazy_PD9zCU, lazy: true, middleware: false, method: undefined },
+  { route: '/api/supabase/tables', handler: _lazy_cMyHOx, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_Ubd3G6, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_Ubd3G6, lazy: true, middleware: false, method: undefined }
@@ -1905,7 +1922,7 @@ const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   default: styles
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const article$e = defineEventHandler(async (event) => {
+const article$c = defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const client = new Client().setEndpoint(config.public.appwriteEndpoint).setProject(config.public.appwriteProjectId);
   const databases = new Databases(client);
@@ -1926,12 +1943,12 @@ const article$e = defineEventHandler(async (event) => {
   }
 });
 
-const article$f = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const article$d = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  default: article$e
+  default: article$c
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const article$c = defineEventHandler(async () => {
+const article$a = defineEventHandler(async () => {
   const config = useRuntimeConfig();
   const appId = config.public.BACK4APP_APP_ID;
   const jsKey = config.public.BACK4APP_JS_KEY;
@@ -1971,12 +1988,12 @@ const article$c = defineEventHandler(async () => {
   }
 });
 
-const article$d = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const article$b = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  default: article$c
+  default: article$a
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const article$a = defineEventHandler(async () => {
+const article$8 = defineEventHandler(async () => {
   const config = useRuntimeConfig();
   const client = new MongoClient(config.DB_MONGO_URI);
   try {
@@ -1996,12 +2013,12 @@ const article$a = defineEventHandler(async () => {
   }
 });
 
-const article$b = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const article$9 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  default: article$a
+  default: article$8
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const article$8 = defineEventHandler(async () => {
+const article$6 = defineEventHandler(async () => {
   const config = useRuntimeConfig();
   const connection = await mysql.createConnection({
     host: config.DB_MYSQL_HOST,
@@ -2024,12 +2041,12 @@ const article$8 = defineEventHandler(async () => {
   }
 });
 
-const article$9 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const article$7 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  default: article$8
+  default: article$6
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const article$6 = defineEventHandler(async () => {
+const article$4 = defineEventHandler(async () => {
   const config = useRuntimeConfig();
   const subdomain = config.public.NHOST_SUBDOMAIN;
   const region = config.public.NHOST_REGION;
@@ -2072,12 +2089,12 @@ const article$6 = defineEventHandler(async () => {
   }
 });
 
-const article$7 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const article$5 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  default: article$6
+  default: article$4
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const article$4 = defineEventHandler(async () => {
+const article$2 = defineEventHandler(async () => {
   const config = useRuntimeConfig();
   const client = new Client$1({
     host: config.DB_PG_HOST,
@@ -2101,12 +2118,12 @@ const article$4 = defineEventHandler(async () => {
   }
 });
 
-const article$5 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const article$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  default: article$4
+  default: article$2
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const article$2 = defineEventHandler(async () => {
+const article = defineEventHandler(async () => {
   const config = useRuntimeConfig();
   if (!config.SQLITE_CLOUD_URL) {
     throw createError({
@@ -2139,35 +2156,68 @@ const article$2 = defineEventHandler(async () => {
   }
 });
 
-const article$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const article$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  default: article$2
+  default: article
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const article = defineEventHandler(async () => {
-  const config = useRuntimeConfig();
-  const supabaseUrl = config.public.supabaseUrl;
-  const supabaseKey = config.public.supabaseKey;
-  if (!supabaseUrl || !supabaseKey) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: "Missing SUPABASE_URL or SUPABASE_KEY"
-    });
+const ALLOWED_TABLES = /* @__PURE__ */ new Set([
+  "article",
+  "bank",
+  "cloud",
+  "experience",
+  "food",
+  "host",
+  "inventory",
+  "mail",
+  "member",
+  "routine",
+  "subscription",
+  "video"
+]);
+const _table_ = defineEventHandler(async (event) => {
+  var _a;
+  const table = (_a = event.context.params) == null ? void 0 : _a.table;
+  if (!ALLOWED_TABLES.has(table)) {
+    throw createError({ statusCode: 400, statusMessage: "Table not allowed" });
   }
-  const supabase = createClient(supabaseUrl, supabaseKey);
-  const { data, error } = await supabase.from("article").select("*").order("created_at", { ascending: false });
+  const config = useRuntimeConfig();
+  const supabase = createClient(
+    config.public.supabaseUrl,
+    config.public.supabaseKey
+  );
+  const { data, error } = await supabase.from(table).select("*").order("created_at", { ascending: false });
   if (error) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: error.message
-    });
+    throw createError({ statusCode: 500, statusMessage: error.message });
   }
   return data;
 });
 
-const article$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const _table_$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  default: article
+  default: _table_
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const tables = defineEventHandler(() => {
+  return [
+    "article",
+    "bank",
+    "cloud",
+    "experience",
+    "food",
+    "host",
+    "inventory",
+    "mail",
+    "member",
+    "routine",
+    "subscription",
+    "video"
+  ];
+});
+
+const tables$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: tables
 }, Symbol.toStringTag, { value: 'Module' }));
 
 function renderPayloadResponse(ssrContext) {
