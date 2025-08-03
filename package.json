@@ -1,0 +1,26 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "start": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@nhost/nhost-js": "^3.3.0",
+    "@sqlitecloud/drivers": "^1.0.507",
+    "@supabase/supabase-js": "^2.53.0",
+    "appwrite": "^18.2.0",
+    "mongodb": "^6.18.0",
+    "mysql2": "^3.14.3",
+    "nuxt": "^4.0.1",
+    "parse": "^6.1.1",
+    "pg": "^8.16.3",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
+  }
+}
